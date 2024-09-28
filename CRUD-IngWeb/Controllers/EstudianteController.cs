@@ -6,14 +6,15 @@ namespace CRUD_IngWeb.Controllers
 {
     public class EstudianteController : Controller
     {
-        // GET: EstudianteController
+        // GET: Estudiante
+        [HttpGet]
         public ActionResult Index()
         {
             var estudiantes = EstudianteRepository.GetEstudiantes();
             return View(estudiantes);
         }
 
-        // GET: EstudianteController/Details/5
+        // GET: Estudiante/Details/5
         public ActionResult Details(int id)
         {
             var estudiante = EstudianteRepository.GetEstudianteId(id);
@@ -24,18 +25,18 @@ namespace CRUD_IngWeb.Controllers
             return View(estudiante);
         }
 
-        // GET: EstudianteController/Create
+        // GET: Estudiante/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: EstudianteController/Create
+        // POST: Estudiante/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Estudiante estudiante)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 EstudianteRepository.AgregarEstudiante(estudiante);
                 return RedirectToAction("Index");
@@ -43,18 +44,18 @@ namespace CRUD_IngWeb.Controllers
             return View(estudiante);
         }
 
-        // GET: EstudianteController/Edit/5
+        // GET: Estudiante/Edit/5
         public ActionResult Edit(int id)
         {
             var estudiante = EstudianteRepository.GetEstudianteId(id);
-            if(estudiante == null)
+            if (estudiante == null)
             {
                 return NotFound();
             }
             return View(estudiante);
         }
 
-        // POST: EstudianteController/Edit/5
+        // POST: Estudiante/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Estudiante estudiante)
@@ -67,7 +68,7 @@ namespace CRUD_IngWeb.Controllers
             return View(estudiante);
         }
 
-        // GET: EstudianteController/Delete/5
+        // GET: Estudiante/Delete/5
         public ActionResult Delete(int id)
         {
             var estudiante = EstudianteRepository.GetEstudianteId(id);
@@ -78,8 +79,8 @@ namespace CRUD_IngWeb.Controllers
             return View(estudiante);
         }
 
-        // POST: EstudianteController/Delete/5
-        [HttpPost,ActionName("Delete")]
+        // POST: Estudiante/Delete/5
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

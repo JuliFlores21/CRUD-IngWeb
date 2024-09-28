@@ -1,0 +1,23 @@
+﻿@model CRUD_IngWeb.Models.Estudiante
+
+@{
+    ViewData["Title"] = "Detalles del Estudiante";
+}
+
+<h2>Detalles del Estudiante</h2>
+
+<div class="mb-3">
+    <label>Nombre:</label>
+    <p>@Model.Name</p>
+</div>
+<div class="mb-3">
+    <label>Email:</label>
+    <p>@Model.Email</p>
+</div>
+<div class="mb-3">
+    <label>Edad:</label>
+    <p>@Model.Edad</p>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Volver</a>
